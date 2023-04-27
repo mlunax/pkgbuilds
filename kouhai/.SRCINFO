@@ -1,0 +1,20 @@
+pkgbase = kouhai
+	pkgdesc = Your everyday IRC student
+	pkgver = 0_alpha10
+	pkgrel = 0
+	url = https://git.sr.ht/~taiite/senpai
+	arch = i686
+	arch = pentium4
+	arch = x86_64
+	arch = arm
+	arch = armv7h
+	arch = armv6h
+	arch = aarch64
+	arch = riscv64
+	license = ISC
+	makedepends = go
+	makedepends = scdoc
+	source = kouhai-0_alpha10.tar.gz::https://github.com/mlunax/kouhai/archive/dfb9ef583a2a6159460aa227c57f1fa66b773d91.tar.gz
+	sha256sums = 29511c68287b05a9bf799fbce9d9681c897d944f9f184f7c19fba382b7bf8672
+
+pkgname = kouhai

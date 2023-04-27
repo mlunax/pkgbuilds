@@ -1,0 +1,29 @@
+pkgname=kouhai
+pkgver=0_alpha10
+pkgrel=0
+pkgdesc="Your everyday IRC student"
+arch=('i686' 'pentium4' 'x86_64' 'arm' 'armv7h' 'armv6h' 'aarch64' 'riscv64')
+url="https://git.sr.ht/~taiite/senpai"
+license=('ISC')
+makedepends=('go' 'scdoc')
+_commit=dfb9ef583a2a6159460aa227c57f1fa66b773d91
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/mlunax/kouhai/archive/$_commit.tar.gz")
+
+sha256sums=('29511c68287b05a9bf799fbce9d9681c897d944f9f184f7c19fba382b7bf8672')
+
+
+build() {
+  cd $srcdir/kouhai-$_commit
+	sed -i "s/production/$pkgver/" window.go
+	make GOFLAGS="$GOFLAGS"
+}
+
+check() {
+  cd $srcdir/kouhai-$_commit
+  go test ./...
+}
+
+package() {
+  cd $srcdir/kouhai-$_commit
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+}
